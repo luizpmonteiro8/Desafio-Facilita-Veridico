@@ -1,5 +1,6 @@
 import { FaRegAddressBook } from "react-icons/fa";
 import { IoPersonOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 export const SideBar = () => {
   return (
@@ -10,19 +11,24 @@ export const SideBar = () => {
       <div className="divider divider-neutral"></div>
       <ul className="flex flex-row flex-wrap gap-1 sm:flex-col">
         <li className="mb-2 flex ">
-          <a className="flex items-center  text-[15px] font-bold" href="/">
+          <NavLink
+            className="flex items-center  text-[15px] font-bold"
+            to="/"
+            replace={true}
+          >
             <IoPersonOutline className="h-5 w-5 mr-2" />
             Cliente
-          </a>
+          </NavLink>
         </li>
         <li className="mb-2 flex">
-          <a
-            className="flex items-center text-[15px] font-bold"
-            href="/endereco/formulario"
+          <NavLink
+            className="flex items-center  text-[15px] font-bold"
+            to="/endereco/formulario"
+            replace={true}
           >
             <FaRegAddressBook className="h-5 w-5 mr-2" />
             Meu endereço
-          </a>
+          </NavLink>
         </li>
         <li className="mb-2 flex">
           <label>Tema</label>
