@@ -7,7 +7,6 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'https://desafio-facilita-veridico.vercel.app',
-      'https://desafio-facilita-veridico-tl7i.vercel.app',
       /^http:\/\/localhost:\d+$/,
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
