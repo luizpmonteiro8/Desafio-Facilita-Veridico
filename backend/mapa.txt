@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Coordenadas no Mapa</title>
+    <!-- Adicione os arquivos CSS e JS do Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <label for="enderecoInput">Digite o Endereço:</label>
+    <input type="text" id="enderecoInput" placeholder="Ex: Rua Exemplo, Cidade Exemplo">
+
+    <button onclick="obterCoordenadas()">Obter Coordenadas</button>
+
+    <div id="resultado">
+        <h3>Resultado:</h3>
+        <p id="coordenadas"></p>
+    </div>
+
+    <div id="map" style="height: 400px;"></div>
+
+    <script>
+        async function obterCoordenadas() {
+            const enderecoInput = document.getElementById('enderecoInput').value;
+
+            try {
+                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoInput)}`);
+                const data = await response.json();
+
+                const coordenadasElement = document.getElementById('coordenadas');
+
+                if (data && data.length > 0) {
+                    const resultado = data[0];
+                    const { lat, lon, display_name } = resultado;
+
+                    coordenadasElement.textContent = `Latitude: ${lat}, Longitude: ${lon}, Endereço: ${display_name}`;
+
+                    // Chama a função para exibir as coordenadas no mapa
+                    exibirNoMapa(lat, lon);
+                } else {
+                    coordenadasElement.textContent = 'Nenhum resultado encontrado para o endereço fornecido.';
+                }
+            } catch (error) {
+                console.error('Erro ao processar a requisição:', error);
+            }
+        }
+
+        function exibirNoMapa(latitude, longitude) {
+            // Cria um mapa Leaflet centrado nas coordenadas fornecidas
+            const mapa = L.map('map').setView([latitude, longitude], 15);
+
+            // Adiciona uma camada de mapa do OpenStreetMap ao mapa
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(mapa);
+
+            // Adiciona um marcador às coordenadas fornecidas
+            L.marker([latitude, longitude]).addTo(mapa)
+                .bindPopup('Localização').openPopup();
+        }
+    </script>
+
+</body>
+</html>
