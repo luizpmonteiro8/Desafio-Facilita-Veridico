@@ -1,10 +1,15 @@
 # Desafio Facilita Jurídico - Sistema de Gerenciamento de Clientes
 
+Link da hospedagem na Vercel: [Desafio Facilita Jurídico](https://desafio-facilita-veridico.vercel.app/)
+
+*Observação: O arquivo `Dll.txt` está localizado na pasta backend.*
+
 ## Introdução
 
 Este código foi desenvolvido como parte do desafio proposto pela empresa Facilita Jurídico. O objetivo do desafio é criar um Sistema de Gerenciamento de Clientes, dividido em duas partes. Na Parte 1, é necessário desenvolver um backend em Node.js utilizando PostgreSQL como banco de dados, e um frontend em React. A empresa deseja centralizar as informações dos clientes, como nome, email e telefone, em uma plataforma que permita listar, filtrar e cadastrar novos clientes.
 
 Na Parte 2, além do cadastro e visualização de clientes, a empresa busca otimizar as rotas de atendimento. Um mapa bidimensional representa a localização dos clientes, com coordenadas X e Y. O desafio consiste em calcular a rota mais eficiente partindo da empresa (0,0) e passando por todos os clientes cadastrados no banco de dados, retornando à empresa no final. O algoritmo para calcular essa rota deve ser disponibilizado via rota da API e ser acionado pelo frontend ao clicar em um botão na tela de clientes.
+
 
 ## Tecnologias Utilizadas
 

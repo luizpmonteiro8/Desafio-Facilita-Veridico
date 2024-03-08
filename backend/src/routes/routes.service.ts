@@ -15,6 +15,7 @@ export class RoutesService {
       database: this.configService.get<string>('database.database'),
       password: this.configService.get<string>('database.password'),
       port: this.configService.get<number>('database.port'),
+      ssl: { rejectUnauthorized: false },
     });
   }
   async calculateRoutes(routesDto: RoutesDto) {
