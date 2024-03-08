@@ -26,3 +26,48 @@ Na Parte 2, além do cadastro e visualização de clientes, a empresa busca otim
 - **React Router:** Para a navegação entre diferentes páginas no frontend.
 - **React Icons:** Ícones para enriquecer a interface.
 - **React Query:** Utilizado para consultas de dados eficientes.
+
+# Instalação
+
+## Baixar do Repositório
+
+- [Repositório no GitHub](https://github.com/luizpmonteiro8/Desafio-Facilita-Veridico.git)
+- [Download como ZIP](https://github.com/luizpmonteiro8/Desafio-Facilita-Veridico/archive/refs/heads/main.zip)
+
+## Backend
+
+1. Dentro da pasta `backend`, execute o comando para instalar as dependências:
+    ```bash
+   npm install ou yarn install
+2. Crie um arquivo `.env` com as seguintes informações de acesso ao PostgreSQL:
+
+   ```env
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USER=seu_usuario
+   DB_PASSWORD=sua_senha
+   DB_DATABASE=seu_banco
+3. No banco de dados, crie a tabela `customers` utilizando o DDL disponível no arquivo `ddl.txt`.
+4. Inicie o servidor com o comando:
+
+   ```bash
+   npm run start:dev
+## Frontend
+
+1. Dentro da pasta `frontend`, execute o comando para instalar as dependências:
+    ```bash
+   npm install ou yarn install
+2. Crie um arquivo `.env` com a seguinte informação:
+
+   ```env
+   VITE_API_URL=http://localhost:3000
+3. Inicie o servidor de desenvolvimento com o comando:
+
+   ```bash
+   npm run dev
+4. Agora é só acessar o endereço fornecido pelo Vite: [http://localhost:5173/](http://localhost:5173/)
+
+## Ambiente Testado
+
+- Banco de dados: PostgreSQL versão 14
+- Node.js: Versão 18

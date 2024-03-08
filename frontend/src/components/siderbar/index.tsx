@@ -30,11 +30,11 @@ export const SideBar = () => {
             Meu endereço
           </NavLink>
         </li>
-        <li className="mb-2 flex">
+        <li className="mb-2 flex sm:w-full">
           <label>Tema</label>
           <select
             data-choose-theme
-            className="select select-bordered w-2/4"
+            className="select select-bordered w-full sm:w-2/4 "
             defaultValue={"capcake"}
           >
             <option value="capcake">Capcake</option>
