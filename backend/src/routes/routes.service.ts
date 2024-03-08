@@ -97,7 +97,7 @@ export class RoutesService {
 
   getLatLong = async (destinationAddress: string) => {
     const nominatimUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${destinationAddress}`;
-    const response = await axios.get(nominatimUrl);
+    const response = await axios.get(nominatimUrl, { timeout: 60000 });
 
     const lat = response.data[0].lat;
     const long = response.data[0].lon;

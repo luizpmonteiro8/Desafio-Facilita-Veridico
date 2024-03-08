@@ -13,8 +13,6 @@ async function bootstrap() {
     credentials: true,
     optionsSuccessStatus: 204,
   });
-  
-  app.useGlobalInterceptors(new TimeoutInterceptor(60000));
 
   await app.listen(3000);
 }
