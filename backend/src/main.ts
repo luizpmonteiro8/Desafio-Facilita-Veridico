@@ -7,20 +7,12 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'https://desafio-facilita-veridico.vercel.app',
+      'https://desafio-facilita-veridico-tl7i.vercel.app',
       /^http:\/\/localhost:\d+$/,
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
     optionsSuccessStatus: 204,
-  });
-
-  app.use((req, res, next) => {
-    res.header(
-      'Access-Control-Allow-Origin',
-      'https://desafio-facilita-veridico.vercel.app',
-      /^http:\/\/localhost:\d+$/,
-    );
-    next();
   });
 
   await app.listen(3000);
