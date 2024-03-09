@@ -80,21 +80,10 @@ export const CustomerList = () => {
       ])
     : [];
 
-  const options = [
-    "ID",
-    "Nome",
-    "Email",
-    "Telefone",
-    "Rua",
-    "Cidade",
-    "Estado",
-  ];
+  const options = ["Nome", "Email", "Telefone", "Rua", "Cidade", "Estado"];
 
   const onChangeSelectField = (value: string) => {
     switch (value) {
-      case "ID":
-        setField("id");
-        break;
       case "Nome":
         setField("name");
         break;

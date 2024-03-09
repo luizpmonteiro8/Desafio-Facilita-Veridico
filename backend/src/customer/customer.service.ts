@@ -4,7 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { Pool } from 'pg';
+import { Pool, PoolConfig } from 'pg';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
 
@@ -13,14 +13,21 @@ export class CustomerService {
   private readonly pool: Pool;
 
   constructor(private readonly configService: ConfigService) {
-    this.pool = new Pool({
+    const databaseConfig: PoolConfig = {
       user: this.configService.get<string>('database.user'),
       host: this.configService.get<string>('database.host'),
       database: this.configService.get<string>('database.database'),
       password: this.configService.get<string>('database.password'),
       port: this.configService.get<number>('database.port'),
-      ssl: { rejectUnauthorized: false },
-    });
+    };
+
+    const sslEnabled = this.configService.get<boolean>('database.sslEnabled');
+
+    if (sslEnabled) {
+      databaseConfig.ssl = { rejectUnauthorized: false };
+    }
+
+    this.pool = new Pool(databaseConfig);
   }
 
   async paginate(
