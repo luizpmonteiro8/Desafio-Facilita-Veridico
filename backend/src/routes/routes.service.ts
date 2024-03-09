@@ -17,7 +17,7 @@ export class RoutesService {
       port: this.configService.get<number>('database.port'),
     };
 
-    const sslEnabled = this.configService.get<string>('database.sslEnabled');
+    const sslEnabled = process.env.DB_SSLENABLED;
 
     if (sslEnabled == 'true') {
       databaseConfig.ssl = { rejectUnauthorized: false };
