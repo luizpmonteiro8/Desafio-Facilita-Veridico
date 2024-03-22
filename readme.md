@@ -3,6 +3,9 @@
 Link da hospedagem na Vercel: [Desafio Facilita Jurídico](https://desafio-facilita-veridico.vercel.app/)
 *Observação: o vercel limita solicitações acima de 10 segundos, causando erro algumas vezes quando vai gerar rotas.*
 
+## E por fim
+![Finalização](https://github.com/luizpmonteiro8/Desafio-Facilita-Veridico/blob/main/image.png)
+
 ## Introdução
 
 Este código foi desenvolvido como parte do desafio proposto pela empresa Facilita Jurídico. O objetivo do desafio é criar um Sistema de Gerenciamento de Clientes, dividido em duas partes. Na Parte 1, é necessário desenvolver um backend em Node.js utilizando PostgreSQL como banco de dados, e um frontend em React. A empresa deseja centralizar as informações dos clientes, como nome, email e telefone, em uma plataforma que permita listar, filtrar e cadastrar novos clientes.
